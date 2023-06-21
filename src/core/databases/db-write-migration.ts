@@ -3,7 +3,7 @@ import {config} from "../../config";
 
 const options: any = {
     type: config.WRITE_TYPE_DATABASE,
-    host: config.WRITE_HOST,
+    host: config.WRITE_HOST_MIGRATION,
     port: config.WRITE_PORT,
     username: config.WRITE_USERNAME,
     password: config.WRITE_PASSWORD,

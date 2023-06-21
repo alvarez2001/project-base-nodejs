@@ -1,7 +1,6 @@
 import "reflect-metadata"
 import app from './server';
 import {AppDataSource} from './core/databases/db-write';
-import {WriteUser} from "./models/User/Write/WriteUser";
 import {RabbitmqHandler} from "./core/rabbitmq";
 
 async function main() {
@@ -17,19 +16,6 @@ async function main() {
             await rabbitmq.connected();
             await rabbitmq.bindingQueueWithExchange();
 
-
-            const user = new WriteUser();
-            user.names = 'probando';
-            user.last_name = 'probando';
-            user.email = 'probando';
-            user.username = 'probando';
-            user.identification = 'probando';
-            user.identification_type = 'V';
-            user.password = '123';
-            user.type = 1;
-            user.status = 1;
-
-            user.save();
 
         })
     } catch (e) {
