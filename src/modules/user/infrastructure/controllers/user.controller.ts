@@ -15,8 +15,8 @@ import {WriteUser} from "../../../../models/User/Write/WriteUser";
 import {UserServiceInterface} from "../../domain/services/user.service.interface";
 import {ResponseInterface} from "../../../../core/interfaces/response.interface";
 import {ValidateRequestMiddleware} from "../../../../core/middlewares/validate-request.middleware";
-import {CreateUserDto} from "../../domain/dto/create-user.dto";
-import {UpdateUserDto} from "../../domain/dto/update-user.dto";
+import {CreateUserDto} from "../../application/dtos/create-user.dto";
+import {UpdateUserDto} from "../../application/dtos/update-user.dto";
 
 @controller('/users')
 export class UserController implements interfaces.Controller {

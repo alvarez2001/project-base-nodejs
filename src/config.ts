@@ -10,4 +10,10 @@ export const config = {
     WRITE_TYPE_DATABASE: String(process.env.WRITE_TYPE_DATABASE),
     WRITE_LOGGING: process.env.WRITE_LOGGING == 'true',
     WRITE_HOST_MIGRATION: process.env.WRITE_HOST_MIGRATION,
+
+    READ_DATABASE: process.env.READ_DATABASE,
+    READ_HOST: process.env.READ_HOST,
+    READ_PORT: process.env.READ_PORT,
+    READ_USERNAME: process.env.READ_USERNAME,
+    READ_PASSWORD: process.env.READ_PASSWORD,
 }
