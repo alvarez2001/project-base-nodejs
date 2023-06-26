@@ -35,13 +35,14 @@ export class WriteBaseRepository<T extends ObjectLiteral> implements WriteBaseRe
 
     async update(id: number, newData: any): Promise<T> {
         const searchById: any = {id};
+        newData['id'] = id;
         await this.repository.update(searchById, newData);
         return this.findOneById(id);
     }
 
     async delete(id: number): Promise<T> {
         const whereCondition: any = {id: id};
-        await this.repository.softDelete(whereCondition);
+        await this.repository.softRemove(whereCondition);
         return this.findOneById(id, true);
     }
 

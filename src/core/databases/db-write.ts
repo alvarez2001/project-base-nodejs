@@ -13,5 +13,6 @@ const options: any = {
     logging: config.WRITE_LOGGING,
     entities: ["./src/models/**/Write/*.ts"],
     migrations: ["./src/migrations/**/*.ts"],
+    subscribers: ['./src/modules/**/infrastructure/listeners/*.ts'],
 }
 export const AppDataSource = new DataSource(options)
