@@ -1,35 +1,36 @@
-import {Read} from "../../../core/models/Read";
-import {getModelForClass, modelOptions, prop} from "@typegoose/typegoose";
+import {
+  Column,
+  Entity
+} from "typeorm";
+import { Read } from "../../../core/models/Read";
 
-@modelOptions({schemaOptions: {collection: "users", timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}}})
-class ReadUserClass extends Read{
+@Entity({ name: "users" })
+export class ReadUser extends Read {
 
-    @prop()
-    names: string;
+  @Column()
+  names: string;
 
-    @prop()
-    last_name: string;
+  @Column()
+  last_name: string;
 
-    @prop()
-    identification_type: string;
+  @Column()
+  identification_type: string;
 
-    @prop()
-    identification: string;
+  @Column()
+  identification: string;
 
-    @prop()
-    email: string;
+  @Column()
+  email: string;
 
-    @prop()
-    username: string;
+  @Column()
+  username: string;
 
-    @prop()
-    password: string;
+  @Column()
+  password: string;
 
-    @prop({type: "int"})
-    type: number;
+  @Column({ type: "int" })
+  type: number;
 
-    @prop({type: "int"})
-    status: number;
-
+  @Column({ type: "int" })
+  status: number;
 }
-export const ReadUser = getModelForClass(ReadUserClass);

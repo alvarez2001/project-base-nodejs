@@ -13,7 +13,10 @@ export const config = {
 
     READ_DATABASE: process.env.READ_DATABASE,
     READ_HOST: process.env.READ_HOST,
-    READ_PORT: process.env.READ_PORT,
+    READ_PORT: parseInt(String(process.env.READ_PORT)),
     READ_USERNAME: process.env.READ_USERNAME,
     READ_PASSWORD: process.env.READ_PASSWORD,
+    READ_TYPE_DATABASE: String(process.env.READ_TYPE_DATABASE),
+    READ_LOGGING: process.env.READ_LOGGING == 'true',
+    READ_HOST_MIGRATION: process.env.READ_HOST_MIGRATION,
 }
