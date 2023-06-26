@@ -1,4 +1,4 @@
-import { ObjectLiteral, Repository } from "typeorm";
+import { ObjectId, ObjectLiteral, Repository } from "typeorm";
 import { injectable, unmanaged } from "inversify";
 import { ModelNotFoundException } from "../../../../../exceptions/model.not-found.exception";
 import { ReadBaseRepositoryInterface } from "../../../domain/repositories/read/read.base.repository.interface";
@@ -29,19 +29,19 @@ export class ReadBaseRepository<T extends ObjectLiteral> implements ReadBaseRepo
     }
   }
 
-  async findOneById(id: string, withDeleted: boolean = false): Promise<T> {
+  async findOneById(id: ObjectId, withDeleted: boolean = false): Promise<T> {
     return this.findOne("_id", id, withDeleted);
   }
 
-  async update(id: string, newData: any): Promise<T> {
+  async update(id: ObjectId, newData: any): Promise<T> {
     const searchById: any = { _id: id };
     await this.repository.update(searchById, newData);
     return this.findOneById(id);
   }
 
-  async delete(id: string): Promise<T> {
+  async delete(id: ObjectId): Promise<T> {
     const whereCondition: any = { _id: id };
-    await this.repository.softDelete(whereCondition);
+    await this.repository.softRemove(whereCondition);
     return this.findOneById(id, true);
   }
 

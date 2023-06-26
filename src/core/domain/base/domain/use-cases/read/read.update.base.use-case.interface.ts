@@ -1,3 +1,5 @@
+import { ObjectId } from "typeorm";
+
 export interface ReadUpdateBaseUseCaseInterface<T> {
-    index(id: string, newData: any): Promise<T>;
+    index(id: ObjectId, newData: any): Promise<T>;
 }

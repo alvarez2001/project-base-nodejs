@@ -1,3 +1,5 @@
+import { ObjectId } from "typeorm";
+
 export interface ReadFindByIdBaseUseCaseInterface<T> {
-    index(id: string): Promise<T>;
+    index(id: ObjectId): Promise<T>;
 }

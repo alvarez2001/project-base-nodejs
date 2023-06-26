@@ -15,10 +15,15 @@ async function main() {
       console.log(`SERVER ON PORT ${PORT}`);
 
       const rabbitmq = new RabbitmqHandler();
-      await rabbitmq.connected();
+
       setTimeout(async () => {
+        await rabbitmq.connected();
         await rabbitmq.bindingQueueWithExchange();
-      }, 5000);
+        await rabbitmq.consumeQueues();
+      }, 2000);
+
+
+
 
 
     });

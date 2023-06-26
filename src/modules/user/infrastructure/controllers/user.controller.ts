@@ -19,6 +19,7 @@ import { CreateUserDto } from "../../application/dtos/create-user.dto";
 import { UpdateUserDto } from "../../application/dtos/update-user.dto";
 import { ReadUserServiceInterface } from "../../domain/services/read/read.user.service.interface";
 import { ReadUser } from "../../../../models/User/Read/ReadUser";
+import { ObjectId } from "typeorm";
 
 @controller("/users")
 export class UserController implements interfaces.Controller {
@@ -37,7 +38,7 @@ export class UserController implements interfaces.Controller {
 
 
   @httpGet("/:id")
-  async findById(@requestParam("id") id: string): Promise<ResponseInterface<ReadUser>> {
+  async findById(@requestParam("id") id: ObjectId): Promise<ResponseInterface<ReadUser>> {
     return await this.readUserService.findById(id);
   }
 

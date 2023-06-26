@@ -16,6 +16,7 @@ import { ReadUpdateBaseUseCase } from "../../use-cases/read/read.update.base.use
 import { ReadFindBaseUseCase } from "../../use-cases/read/read.find.base.use-case";
 import { ReadFindOneBaseUseCase } from "../../use-cases/read/read.find-one.base.use-case";
 import { ReadFindByIdBaseUseCase } from "../../use-cases/read/read.find-by-id.base.use-case";
+import { ObjectId } from "typeorm";
 
 @injectable()
 export abstract class ReadBaseService<T> implements ReadBaseServiceInterface<T> {
@@ -36,7 +37,7 @@ export abstract class ReadBaseService<T> implements ReadBaseServiceInterface<T> 
     this.readFindByIdUseCase = new ReadFindByIdBaseUseCase<T>(baseRepository);
   }
 
-  async delete(id: string): Promise<ResponseInterface<T>> {
+  async delete(id: ObjectId): Promise<ResponseInterface<T>> {
     return {
       data: await this.readDeleteUseCase.index(id),
       code: 200
@@ -50,7 +51,7 @@ export abstract class ReadBaseService<T> implements ReadBaseServiceInterface<T> 
     };
   }
 
-  async findById(id: string): Promise<ResponseInterface<T>> {
+  async findById(id: ObjectId): Promise<ResponseInterface<T>> {
     return {
       data: await this.readFindByIdUseCase.index(id),
       code: 200
@@ -71,7 +72,7 @@ export abstract class ReadBaseService<T> implements ReadBaseServiceInterface<T> 
     };
   }
 
-  async update(id: string, newData: any): Promise<ResponseInterface<T>> {
+  async update(id: ObjectId, newData: any): Promise<ResponseInterface<T>> {
     return {
       data: await this.readUpdateUseCase.index(id, newData),
       code: 200
